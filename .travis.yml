@@ -1,0 +1,21 @@
+dist: trusty
+language: scala
+scala:
+  - 2.12.5
+jdk:
+  - oraclejdk8
+services:
+  - mongodb
+
+jobs:
+  include:
+  - stage: build
+    name: "Compile & cache"
+    script:
+      - rm -rf $HOME/.ivy2/cache/mdsol
+      - rm -rf $HOME/.ivy2/cache/com.mdsol
+      - sbt ++$TRAVIS_SCALA_VERSION clean compileAll
+  - stage: test
+    name: "Unit tests & coverage"
+    script:
+      - sbt ++$TRAVIS_SCALA_VERSION coverage test coverageReport codacyCoverage
