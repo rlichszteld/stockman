@@ -2,6 +2,12 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fd0a78399d41407aa7be55bfbf32c7c1)](https://www.codacy.com/manual/rlichszteld/stockman?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rlichszteld/stockman&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/fd0a78399d41407aa7be55bfbf32c7c1)](https://www.codacy.com/manual/rlichszteld/stockman?utm_source=github.com&utm_medium=referral&utm_content=rlichszteld/stockman&utm_campaign=Badge_Coverage)
 
+![GitHub language count](https://img.shields.io/github/languages/count/rlichszteld/stockman)
+![GitHub top language](https://img.shields.io/github/languages/top/rlichszteld/stockman)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/rlichszteld/stockman)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/rlichszteld/stockman)
+
 # StockMan
 
 Simple, lightweight API for managing shares portfolio performance. 

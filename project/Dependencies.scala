@@ -22,15 +22,10 @@ object Dependencies {
     cats,
     akkaHttpCirce,
     mongoDB,
-    mongoCodecs,
-    // -- potentially to scrap deps below
-    mySql,
-    slick,
-    slickHikaricp
+    mongoCodecs
   ) ++ circe
 
   lazy val testDeps: Seq[ModuleID] = Seq(
-    slickTestKit,
     scalaTest,
     akkaHttpTestKit,
     akkaStreamTestKit,
@@ -43,8 +38,6 @@ object Dependencies {
     val logBack: String = "1.2.3"
     val scalaLogging: String = "3.7.2"
     val pureconfig: String = "0.10.1"
-    val mysql: String = "8.0.11"
-    val slick: String = "3.2.1"
     val scalaTest: String = "3.0.5"
     val mock: String = "3.6.0"
     val circe = "0.12.2"
@@ -56,11 +49,6 @@ object Dependencies {
 
   val logbackClassic: ModuleID = "ch.qos.logback" % "logback-classic" % Version.logBack
   val pureConfig: ModuleID = "com.github.pureconfig" %% "pureconfig" % Version.pureconfig
-
-  val mySql: ModuleID = "mysql" % "mysql-connector-java" % Version.mysql
-  val slick: ModuleID = "com.typesafe.slick" %% "slick" % Version.slick
-  val slickHikaricp: ModuleID = "com.typesafe.slick" %% "slick-hikaricp" % Version.slick
-  val slickTestKit: ModuleID = "com.typesafe.slick" %% "slick-testkit" % Version.slick % Test
 
   val cats: ModuleID = "org.typelevel" %% "cats-core" % "1.0.1"
 
