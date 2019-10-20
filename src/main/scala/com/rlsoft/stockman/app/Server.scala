@@ -1,6 +1,5 @@
 package com.rlsoft.stockman.app
 
-import akka.Done
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.Materializer

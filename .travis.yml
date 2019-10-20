@@ -10,7 +10,7 @@ services:
 jobs:
   include:
   - stage: build
-    name: "Compile & Cache"
+    name: "Compile & cache"
     script:
       - rm -rf $HOME/.ivy2/cache/mdsol
       - rm -rf $HOME/.ivy2/cache/com.mdsol

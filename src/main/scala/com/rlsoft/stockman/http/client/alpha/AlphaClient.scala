@@ -1,4 +1,4 @@
-package com.rlsoft.stockman.http.client
+package com.rlsoft.stockman.http.client.alpha
 
 import java.time.LocalDate
 
@@ -8,6 +8,7 @@ import akka.http.scaladsl.model.{HttpMethods, HttpRequest, Uri}
 import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.Materializer
 import com.rlsoft.stockman.config.AlphaConfig
+import com.rlsoft.stockman.http.client.FinClient
 import com.rlsoft.stockman.http.client.models.TicketPrice
 import com.rlsoft.stockman.models.Ticket
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport
@@ -18,32 +19,11 @@ import scala.concurrent.{ExecutionContext, Future}
 
 case class TicketInfoResponse(bestMatches: Seq[Ticket])
 
-trait TicketJsonProtocol {
-
-  implicit val ticketDecoder: Decoder[Ticket] = (c: HCursor) =>
-    for {
-      symbol <- c.get[String]("1. symbol")
-      name <- c.get[String]("2. name")
-    } yield Ticket(symbol, name)
-}
-
-trait TicketPriceJsonProtocol {
-  implicit val ticketPriceDecoder: Decoder[TicketPrice] = (root: HCursor) => {
-    val c = root.downField("Global Quote")
-    for {
-      symbol <- c.get[String]("01. symbol")
-      price <- c.get[BigDecimal]("05. price")
-      date <- c.get[LocalDate]("07. latest trading day")
-      change <- c.get[Double]("09. change")
-    } yield TicketPrice(symbol, price, date, change)
-  }
-}
-
 class AlphaClient(config: AlphaConfig)(implicit system: ActorSystem, mat: Materializer, ec: ExecutionContext)
     extends FinClient
     with FailFastCirceSupport
-    with TicketJsonProtocol
-    with TicketPriceJsonProtocol {
+    with TicketJsonSupport
+    with TicketPriceJsonSupport {
 
   private lazy val baseUrl = config.baseUrl
   private lazy val apiKey = config.apiKey
