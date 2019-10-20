@@ -1,12 +1,11 @@
 package com.rlsoft.stockman.models.id
 
+import cats.syntax.either._
 import io.circe.{Decoder, Encoder}
 import org.bson.types.ObjectId
 
 trait ObjectIdSupport extends IdProvider[ObjectId] {
   override def generateId: ObjectId = new ObjectId
-
-  import cats.syntax.either._
 
   implicit val encodeObjectId: Encoder[ObjectId] = Encoder.encodeString.contramap(_.toString)
 
