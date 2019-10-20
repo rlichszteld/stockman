@@ -30,6 +30,5 @@ class Server(config: HttpConfig, router: Router)(implicit system: ActorSystem, m
   def stop: Future[Http.HttpTerminated] = {
     logger.info("Shutting down...")
     Await.result(bindingFuture, 10 seconds).terminate(hardDeadline = 3 seconds)
-    //Await.result(bindingFuture.flatMap(_.unbind), 10 seconds)
   }
 }

@@ -5,3 +5,5 @@
 # StockMan
 
 Simple, lightweight API for managing shares portfolio performance. 
+
+Utilizes portfolio analysis model used by [Simply Wall St.](https://github.com/SimplyWallSt/Portfolio-Analysis-Model/blob/master/model.markdown) 

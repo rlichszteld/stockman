@@ -6,7 +6,7 @@ object BuildSettings {
   lazy val basicSettings = Seq(
     name := "StockMan",
     version := "1.0",
-    homepage := Some(new URL("https://github.com/mdsol/study_management_milestones")),
+    homepage := Some(new URL("https://github.com/rlichszteld/stockman")),
     description := "Simple, lightweight stock manager",
     scalaVersion := "2.12.5",
     resolvers ++= Dependencies.resolutionRepos,
