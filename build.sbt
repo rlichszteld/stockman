@@ -12,4 +12,19 @@ lazy val StockMan = project
 //Set ttl of snapshots so they always refresh
 coursierTtl := None
 
+coverageOutputCobertura := false
+coverageOutputXML := false
+coverageOutputDebug := true
+
+coverageExcludedPackages := Seq(
+  "$:",
+  ".*app.*",
+  ".*config.*",
+  ".*models.*",
+  ".*errors.*",
+  ".*PortfolioDocument.*",
+  ".*Codec.*",
+  ".*Static.*"
+).mkString(";")
+
 addCommandAlias("compileAll", ";compile;test:compile")
