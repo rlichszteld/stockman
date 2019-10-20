@@ -16,6 +16,6 @@ jobs:
       - rm -rf $HOME/.ivy2/cache/com.mdsol
       - sbt ++$TRAVIS_SCALA_VERSION clean compileAll
   - stage: test
-    name: "Unit tests + coverage"
+    name: "Unit tests & coverage"
     script:
       - sbt ++$TRAVIS_SCALA_VERSION coverage test coverageReport codacyCoverage
